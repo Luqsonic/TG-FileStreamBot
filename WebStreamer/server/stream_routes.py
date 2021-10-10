@@ -69,6 +69,7 @@ async def media_streamer(request, message_id: int):
         status=206 if range_header else 200,
         body=body,
         headers={
+            "Access-Control-Allow-Origin" : "*",
             "Content-Type": mime_type,
             "Content-Range": f"bytes {from_bytes}-{until_bytes}/{file_size}",
             "Content-Disposition": f'attachment; filename="{file_name}"',
