@@ -26,7 +26,7 @@ async def root_route_handler(request):
 @routes.get(r"/{link:\S+}")
 async def stream_handler(request):
     try:
-        message_id = request.match_info['message_id']
+        message_id = request.match_info['link']
         return web.json_response({"server_status": message_id })
     except ValueError as e:
         logging.error(e)
