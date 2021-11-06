@@ -28,7 +28,7 @@ async def root_route_handler(request):
 async def stream_handler(request):
     try:
         link = request.match_info['link']
-        return web.json_response({"hshs",link})
+        return web.json_response({"hshs":link})
     except ValueError as e:
         logging.error(e)
         raise web.HTTPNotFound
